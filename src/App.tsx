@@ -1,14 +1,14 @@
 import { FC } from 'react';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { useFormik, Field, Form, Formik } from 'formik';
+import { Field, Formik } from 'formik';
 import * as Yup from 'yup';
 import './style.css';
 
 export const App: FC<{ name: string }> = ({ name }) => {
-
   return (
     <>
+      {/* we are storing values here getFieldsprop value passed  */}
       <Formik
         initialValues={{
           firstName: '',
@@ -20,14 +20,14 @@ export const App: FC<{ name: string }> = ({ name }) => {
         validationSchema={Yup.object({
           firstName: Yup.string()
             .max(15, 'Must be 15 characters or less')
-            .required('Required2'),
+            .required('Required firstName'),
           lastName: Yup.string()
             .max(20, 'Must be 20 characters or less')
-            .required('Required1'),
+            .required('Required lastName'),
           email: Yup.string()
             .email('Invalid email address')
-            .required('Required3'),
-          checked: Yup.array().min(1, 'select one').required('sss'),
+            .required('Required Email'),
+          checked: Yup.array().min(1, 'select one').required(''),
           picked: Yup.string()
             .min(1, 'Please select at one value')
             .required('Please select at one value'),
