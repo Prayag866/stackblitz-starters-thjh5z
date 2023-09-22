@@ -5,9 +5,11 @@ import { Field, Formik } from 'formik';
 import * as Yup from 'yup';
 import './style.css';
 import Channel from './components/Channel';
+import Optimizer from './components/Optimizer';
 export const App: FC<{ name: string }> = ({ name }) => {
   return (
     <>
+      {/* <Optimizer /> */}
       {/* <Channel /> */}
       {/* we are storing values here getFieldsprop value passed  */}
       <Formik
