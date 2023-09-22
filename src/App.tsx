@@ -30,7 +30,13 @@ export const App: FC<{ name: string }> = ({ name }) => {
   return (
     <>
       <Formik
-        initialValues={{ firstName: '', lastName: '', email: '', checked: [] }}
+        initialValues={{
+          firstName: '',
+          lastName: '',
+          email: '',
+          checked: [],
+          picked: '',
+        }}
         validationSchema={Yup.object({
           firstName: Yup.string()
             .max(15, 'Must be 15 characters or less')
@@ -41,7 +47,10 @@ export const App: FC<{ name: string }> = ({ name }) => {
           email: Yup.string()
             .email('Invalid email address')
             .required('Required3'),
-          checked: Yup.array().min(1, 'slect one').required('hhah'),
+          checked: Yup.array().min(1, 'select one').required('sss'),
+          picked: Yup.string()
+            .min(1, 'Please select at one value')
+            .required('Please select at one value'),
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
@@ -50,6 +59,7 @@ export const App: FC<{ name: string }> = ({ name }) => {
           }, 400);
         }}
       >
+        {/* Here we are using  Formik to display error and checking touched property and */}
         {(formik) => (
           <form onSubmit={formik.handleSubmit}>
             <label htmlFor="firstName">First Name</label>
@@ -98,6 +108,22 @@ export const App: FC<{ name: string }> = ({ name }) => {
               ) : null}
               <br />
             </div>
+
+            <div id="my-radio-group">Picked</div>
+            <div role="group" aria-labelledby="my-radio-group">
+              <label>
+                <Field type="radio" name="picked" value="One" />
+                One
+              </label>
+              <label>
+                <Field type="radio" name="picked" value="Two" />
+                Two
+              </label>
+              <div>Picked: {formik.values.picked}</div>
+            </div>
+            {formik.touched.picked && formik.errors.picked ? (
+              <div>{formik.errors.picked}</div>
+            ) : null}
             <button type="submit">Submit</button>
           </form>
         )}
