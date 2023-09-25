@@ -44,9 +44,9 @@ function Tab() {
         flexDirection={'row'}
         justifyContent={'space-between'}
       >
-        <Box display={'flex'} marginTop={2} marginBottom={1} md={4} xs={6}>
+        <Box display={'flex'} marginTop={2} marginBottom={1}>
           {/* <Toolbar disableGutters> */}
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <AdbIcon sx={{ display: { md: 'flex' }, mr: 1 }} />
           <Typography
             variant="body2"
             noWrap
@@ -54,7 +54,7 @@ function Tab() {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
+              display: { md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',

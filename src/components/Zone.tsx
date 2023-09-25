@@ -3,9 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Typography } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import {
   Button,
   CardActionArea,
@@ -64,8 +62,9 @@ const Zone = () => {
                   }}
                 >
                   <img
-                    // src={require('./components/map.jpg')}
-                    alt="Not Image"
+                    src="https://images.freeimages.com/images/large-previews/a67/india-outline-map-1158103.jpg"
+                    // src={map}
+                    alt="No Image"
                     style={{
                       height: '70%',
                       width: '40%',
