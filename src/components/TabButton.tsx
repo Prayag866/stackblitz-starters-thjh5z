@@ -36,11 +36,17 @@ function Tab() {
   };
 
   return (
-    <AppBar position="static" style={{backgroundColor:"#171D8F"}}>
-      <Box marginLeft={1} minHeight={33} display={"flex"} flexDirection={"row"}  justifyContent={"space-between"}>
-        <Box display={"flex"}marginTop={2} marginBottom={1}>
-        {/* <Toolbar disableGutters> */}
-           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+    <AppBar position="static" style={{ backgroundColor: '#171D8F' }}>
+      <Box
+        marginLeft={1}
+        minHeight={33}
+        display={'flex'}
+        flexDirection={'row'}
+        justifyContent={'space-between'}
+      >
+        <Box display={'flex'} marginTop={2} marginBottom={1} md={4} xs={6}>
+          {/* <Toolbar disableGutters> */}
+          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="body2"
             noWrap
@@ -55,48 +61,52 @@ function Tab() {
               color: 'inherit',
               textDecoration: 'none',
             }}
-            >
-          MARUTI SUZUKI
+          >
+            MARUTI SUZUKI
           </Typography>
-            </Box>
-        
+        </Box>
 
-
-
-
-{/* image part */}
-          <Box display={"flex"} flexDirection={"row"} maxWidth={100} >
-      <Typography sx={{lineHeight:"90%",fontSize:"16px"}} marginTop={1}>Hello prayag 
-      </Typography>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} size='small'>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg"  sx={{ width: 30, height: 30 }}/>
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu> 
-     </Box>
-     </Box>
+        {/* image part */}
+        <Box display={'flex'} flexDirection={'row'} maxWidth={100}>
+          <Typography
+            sx={{ lineHeight: '90%', fontSize: '16px' }}
+            marginTop={1}
+          >
+            Hello prayag
+          </Typography>
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleOpenUserMenu} size="small">
+              <Avatar
+                alt="Remy Sharp"
+                src="/static/images/avatar/2.jpg"
+                sx={{ width: 30, height: 30 }}
+              />
+            </IconButton>
+          </Tooltip>
+          <Menu
+            sx={{ mt: '45px' }}
+            id="menu-appbar"
+            anchorEl={anchorElUser}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+          >
+            {settings.map((setting) => (
+              <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <Typography textAlign="center">{setting}</Typography>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Box>
+      </Box>
     </AppBar>
   );
 }
