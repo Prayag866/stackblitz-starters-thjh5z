@@ -1,14 +1,11 @@
 import { FC } from 'react';
-import React from 'react';
-import ReactDOM from 'react-dom';
 import { Field, Formik } from 'formik';
 import * as Yup from 'yup';
-// import './style.css';
 
 export const ApplicationForm: FC<{ name: string }> = ({ name }) => {
   return (
     <>
-      <br ApplicationForm/>
+      <br/>
       {/* we are storing values here getFieldsprop value passed  */}
       {/* we are accessing values here using name parameter */}
       <Formik
