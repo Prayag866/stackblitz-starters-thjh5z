@@ -36,11 +36,10 @@ const a = [
     name: 'NorthWest',
   },
 ];
-const b = { border: '8px dotted grey' };
+const b = { border: '2.5px solid black', boxShadow: '2px 4px grey' };
 const Zone = () => {
   const [clicks, setClicks] = useState({});
   const pg = (e) => {
-    console.log(e.target.id);
     setClicks({ ...clicks, [e.target.id]: !clicks[e.target.id] });
   };
   return (

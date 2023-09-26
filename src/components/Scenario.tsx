@@ -19,30 +19,27 @@ const a = [
   },
   {
     icon: <CurrencyFrancIcon />,
-    name: 'No-Exchange',
+    name: 'NoExchange',
   },
   {
     icon: <CurrencyFrancIcon />,
-    name: 'Addtional Budget',
+    name: 'FairBudget',
   },
   {
     icon: <CurrencyFrancIcon />,
-    name: 'Addtional Budget',
+    name: 'NoFairBudget',
   },
   {
     icon: <CurrencyFrancIcon />,
-    name: 'Addtional Budget',
+    name: 'AddtionalBudget',
   },
 ];
-
-const b = { border: '8px dotted grey' };
+const b = { border: '2.5px solid black', boxShadow: '2px 4px grey' };
 
 const Scenario = () => {
   const [select, setSelect] = useState({});
   const prayag = (e) => {
-    console.log(e.target.id);
     setSelect({ ...select, [e.target.id]: !select[e.target.id] });
-    console.log(select);
   };
 
   return (
