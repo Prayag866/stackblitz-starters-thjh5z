@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
+import { useState } from 'react';
 import {
   Button,
   CardActionArea,
@@ -12,31 +13,36 @@ import {
 const a = [
   {
     logo1: './images/map.jpg',
-    name: 'N-North',
+    name: 'North',
   },
   {
     logo1: './images/map.jpg',
-    name: 'N-North',
+    name: 'East',
   },
   {
     logo1: './images/map.jpg',
-    name: 'N-North',
+    name: 'West',
   },
   {
     logo1: './images/map.jpg',
-    name: 'N-North',
+    name: 'South',
   },
   {
     logo1: './images/map.jpg',
-    name: 'N-North',
+    name: 'NorthEast',
   },
   {
     logo1: './images/map.jpg',
-    name: 'N-North',
+    name: 'NorthWest',
   },
 ];
-
+const b = { border: '8px dotted grey' };
 const Zone = () => {
+  const [clicks, setClicks] = useState({});
+  const pg = (e) => {
+    console.log(e.target.id);
+    setClicks({ ...clicks, [e.target.id]: !clicks[e.target.id] });
+  };
   return (
     <>
       <br />
@@ -51,12 +57,13 @@ const Zone = () => {
           {a.map((note) => {
             return (
               <Grid item md={1.5} xs={6} sm={3}>
-                <div
-                  style={{
-                    height: '100%',
-                    border: '1.5px solid grey',
-                    borderRadius: '10%',
-                  }}
+                <Box
+                  sx={clicks[note.name] ? b : null}
+                  height={'100px'}
+                  id={note.name}
+                  onClick={pg}
+                  border={'1.5px solid grey'}
+                  borderRadius={'10%'}
                 >
                   <img
                     src="https://images.freeimages.com/images/large-previews/a67/india-outline-map-1158103.jpg"
@@ -70,6 +77,7 @@ const Zone = () => {
                       marginRight: 'auto',
                       marginTop: '4%',
                     }}
+                    id={note.name}
                   />
                   <Typography
                     variant="body2"
@@ -77,10 +85,11 @@ const Zone = () => {
                     padding={0.5}
                     align="center"
                     paddingBottom={4}
+                    id={note.name}
                   >
                     {note.name}
                   </Typography>
-                </div>
+                </Box>
               </Grid>
             );
           })}
